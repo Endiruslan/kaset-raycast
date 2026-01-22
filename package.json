@@ -1,0 +1,93 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "kaset",
+  "title": "Kaset",
+  "description": "Control Kaset - YouTube Music client for macOS",
+  "icon": "extension-icon.png",
+  "author": "kaset",
+  "categories": ["Media", "Applications"],
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "now-playing",
+      "title": "Now Playing",
+      "description": "View the currently playing track",
+      "mode": "view"
+    },
+    {
+      "name": "toggle-playback",
+      "title": "Toggle Play/Pause",
+      "description": "Toggle between play and pause",
+      "mode": "no-view"
+    },
+    {
+      "name": "next-track",
+      "title": "Next Track",
+      "description": "Skip to the next track",
+      "mode": "no-view"
+    },
+    {
+      "name": "previous-track",
+      "title": "Previous Track",
+      "description": "Go to the previous track",
+      "mode": "no-view"
+    },
+    {
+      "name": "volume",
+      "title": "Set Volume",
+      "description": "Set the playback volume",
+      "mode": "view"
+    },
+    {
+      "name": "toggle-shuffle",
+      "title": "Toggle Shuffle",
+      "description": "Toggle shuffle mode",
+      "mode": "no-view"
+    },
+    {
+      "name": "cycle-repeat",
+      "title": "Cycle Repeat",
+      "description": "Cycle through repeat modes (off, all, one)",
+      "mode": "no-view"
+    },
+    {
+      "name": "toggle-mute",
+      "title": "Toggle Mute",
+      "description": "Toggle mute state",
+      "mode": "no-view"
+    },
+    {
+      "name": "like-track",
+      "title": "Like Track",
+      "description": "Like or unlike the current track",
+      "mode": "no-view"
+    },
+    {
+      "name": "dislike-track",
+      "title": "Dislike Track",
+      "description": "Dislike or undislike the current track",
+      "mode": "no-view"
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^1.87.0",
+    "@raycast/utils": "^1.19.0",
+    "run-applescript": "^7.0.0"
+  },
+  "devDependencies": {
+    "@raycast/eslint-config": "^1.0.11",
+    "@types/node": "22.13.1",
+    "@types/react": "19.0.8",
+    "eslint": "^8.57.0",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.3"
+  },
+  "scripts": {
+    "build": "ray build",
+    "dev": "ray develop",
+    "fix-lint": "ray lint --fix",
+    "lint": "ray lint",
+    "prepublishOnly": "echo \"\\n\\nIt seems like you are trying to publish the Raycast extension to npm.\\n\\nIf you did intend to publish it to npm, remove the \\`prepublishOnly\\` script and rerun \\`npm publish\\` again.\\nIf you wanted to publish it to the Raycast Store instead, use \\`ray publish\\` instead.\\n\\n\" && exit 1",
+    "publish": "npx @anthropic/npx-raycast publish"
+  }
+}
