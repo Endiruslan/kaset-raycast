@@ -7,7 +7,30 @@
   "author": "Endiruslan",
   "categories": ["Media", "Applications"],
   "license": "MIT",
+  "preferences": [
+    {
+      "name": "menuBarStyle",
+      "type": "dropdown",
+      "title": "Menu Bar Style",
+      "description": "How to display track info in menu bar",
+      "required": false,
+      "default": "short",
+      "data": [
+        { "title": "Icon only", "value": "icon" },
+        { "title": "Short (20 chars)", "value": "short" },
+        { "title": "Medium (35 chars)", "value": "medium" },
+        { "title": "Long (50 chars)", "value": "long" }
+      ]
+    }
+  ],
   "commands": [
+    {
+      "name": "menu-bar",
+      "title": "Show Menu Bar",
+      "description": "Show current track in menu bar with controls",
+      "mode": "menu-bar",
+      "interval": "5s"
+    },
     {
       "name": "now-playing",
       "title": "Now Playing",

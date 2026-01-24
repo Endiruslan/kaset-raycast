@@ -4,6 +4,7 @@ Control [Kaset](https://github.com/sozercan/kaset) - YouTube Music client for ma
 
 ## Features
 
+- **Menu Bar Player** - Shows current track in macOS menu bar with full playback controls
 - **Now Playing** - View current track with artwork, progress, and controls
 - **Toggle Play/Pause** - Quick playback control
 - **Next/Previous Track** - Skip tracks
@@ -11,48 +12,53 @@ Control [Kaset](https://github.com/sozercan/kaset) - YouTube Music client for ma
 - **Toggle Shuffle** - Enable/disable shuffle mode
 - **Cycle Repeat** - Cycle through repeat modes (off → all → one)
 - **Toggle Mute** - Mute/unmute audio
+- **Like/Dislike** - Rate the current track
 
 ## Requirements
 
-- [Kaset](https://github.com/sozercan/kaset) must be installed and built with AppleScript support
-- macOS 26.0 or later
+- [Kaset](https://github.com/sozercan/kaset) with AppleScript support
+- macOS 14.0 or later
 
 ## Installation
 
-### 1. Build Kaset with AppleScript Support
-
-Before using this extension, you need to build Kaset with the AppleScript support files that were added to the project:
-
-1. Open `Kaset.xcodeproj` in Xcode
-2. Build the project (⌘B)
-3. Run Kaset at least once
-
-### 2. Install the Extension
-
 ```bash
-cd raycast-extension
 npm install
 npm run dev
 ```
 
 This will open Raycast and load the extension in development mode.
 
-### 3. Add Extension Icon
-
-Replace `assets/extension-icon.png` with a 512x512 PNG icon for the extension.
-
 ## Commands
 
-| Command | Description | Shortcut |
-|---------|-------------|----------|
-| Now Playing | View current track | - |
-| Toggle Play/Pause | Play or pause | - |
-| Next Track | Skip to next | - |
-| Previous Track | Go back | - |
-| Set Volume | Choose volume level | - |
-| Toggle Shuffle | Toggle shuffle mode | - |
-| Cycle Repeat | Cycle repeat modes | - |
-| Toggle Mute | Mute/unmute | - |
+| Command | Description |
+|---------|-------------|
+| Show Menu Bar | Show current track in menu bar with controls |
+| Now Playing | View current track with artwork and controls |
+| Toggle Play/Pause | Play or pause |
+| Next Track | Skip to next |
+| Previous Track | Go back |
+| Set Volume | Choose volume level |
+| Toggle Shuffle | Toggle shuffle mode |
+| Cycle Repeat | Cycle repeat modes |
+| Toggle Mute | Mute/unmute |
+| Like Track | Like or unlike current track |
+| Dislike Track | Dislike or remove dislike |
+
+## Menu Bar
+
+The menu bar player shows the current track and provides quick access to all controls:
+
+- **Show**: Run "Show Menu Bar" from Raycast
+- **Hide**: Click "Hide Menu Bar" in the menu bar dropdown
+
+### Settings
+
+Configure the menu bar display style in Raycast extension preferences:
+
+- **Icon only** - Just the music icon
+- **Short** - Track name truncated to 20 characters
+- **Medium** - Track name truncated to 35 characters
+- **Long** - Track name truncated to 50 characters
 
 ## AppleScript Support
 
