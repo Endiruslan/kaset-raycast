@@ -68,13 +68,19 @@ async function getPlayerInfo(): Promise<KasetState | null> {
   if (!(await isKasetRunning())) return null;
 
   try {
-    const result = await runAppleScript(`tell application "Kaset" to get player info`);
+    const result = await runAppleScript(
+      `tell application "Kaset" to get player info`,
+    );
     if (!result || result === "{}") return null;
 
     const state = JSON.parse(result);
 
     return {
-      playerState: state.isPlaying ? "playing" : state.isPaused ? "paused" : "stopped",
+      playerState: state.isPlaying
+        ? "playing"
+        : state.isPaused
+          ? "paused"
+          : "stopped",
       volume: state.volume ?? 0,
       shuffling: state.shuffling ?? false,
       repeating: (state.repeating ?? "off") as RepeatMode,
@@ -139,7 +145,9 @@ export async function previousTrack(): Promise<void> {
 export async function setVolume(volume: number): Promise<void> {
   if (!(await ensureKasetRunning())) return;
   const clampedVolume = Math.max(0, Math.min(100, Math.round(volume)));
-  await runAppleScript(`tell application "Kaset" to set volume ${clampedVolume}`);
+  await runAppleScript(
+    `tell application "Kaset" to set volume ${clampedVolume}`,
+  );
   await showHUD(`🔊 Volume: ${clampedVolume}%`);
 }
 
@@ -165,7 +173,11 @@ export async function cycleRepeat(): Promise<void> {
   await runAppleScript(`tell application "Kaset" to cycle repeat`);
   // Cycle: off -> all -> one -> off
   const nextMode =
-    stateBefore?.repeating === "off" ? "All" : stateBefore?.repeating === "all" ? "One" : "Off";
+    stateBefore?.repeating === "off"
+      ? "All"
+      : stateBefore?.repeating === "all"
+        ? "One"
+        : "Off";
   await showHUD(`🔁 Repeat: ${nextMode}`);
 }
 
@@ -235,7 +247,9 @@ export async function likeTrack(): Promise<void> {
   if (!(await ensureKasetRunning())) return;
   const stateBefore = await getPlayerInfo();
   await runAppleScript(`tell application "Kaset" to like track`);
-  await showHUD(stateBefore?.likeStatus === "liked" ? "👍 Unliked" : "👍 Liked");
+  await showHUD(
+    stateBefore?.likeStatus === "liked" ? "👍 Unliked" : "👍 Liked",
+  );
 }
 
 // Dislike track (toggle)
@@ -243,7 +257,9 @@ export async function dislikeTrack(): Promise<void> {
   if (!(await ensureKasetRunning())) return;
   const stateBefore = await getPlayerInfo();
   await runAppleScript(`tell application "Kaset" to dislike track`);
-  await showHUD(stateBefore?.likeStatus === "disliked" ? "👎 Undisliked" : "👎 Disliked");
+  await showHUD(
+    stateBefore?.likeStatus === "disliked" ? "👎 Undisliked" : "👎 Disliked",
+  );
 }
 
 // Format seconds to MM:SS

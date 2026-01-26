@@ -39,7 +39,11 @@ export default function NowPlaying() {
         markdown="# No track playing\n\nStart playing something in Kaset."
         actions={
           <ActionPanel>
-            <Action title="Refresh" icon={Icon.ArrowClockwise} onAction={revalidate} />
+            <Action
+              title="Refresh"
+              icon={Icon.ArrowClockwise}
+              onAction={revalidate}
+            />
           </ActionPanel>
         }
       />
@@ -47,7 +51,8 @@ export default function NowPlaying() {
   }
 
   const track = state.currentTrack;
-  const progress = state.duration > 0 ? (state.position / state.duration) * 100 : 0;
+  const progress =
+    state.duration > 0 ? (state.position / state.duration) * 100 : 0;
   const progressBar = generateProgressBar(progress);
 
   const artworkMarkdown = track.artworkURL
@@ -107,7 +112,10 @@ ${state.playerState === "playing" ? "▶️ Playing" : "⏸️ Paused"}${state.s
           <ActionPanel.Section title="Options">
             <Action
               title={state.shuffling ? "Shuffle Off" : "Shuffle On"}
-              icon={{ source: Icon.Shuffle, tintColor: state.shuffling ? Color.Blue : undefined }}
+              icon={{
+                source: Icon.Shuffle,
+                tintColor: state.shuffling ? Color.Blue : undefined,
+              }}
               shortcut={{ modifiers: ["cmd"], key: "s" }}
               onAction={async () => {
                 await toggleShuffle();
@@ -116,7 +124,10 @@ ${state.playerState === "playing" ? "▶️ Playing" : "⏸️ Paused"}${state.s
             />
             <Action
               title={`Repeat: ${state.repeating === "off" ? "Off" : state.repeating === "all" ? "All" : "One"}`}
-              icon={{ source: Icon.Repeat, tintColor: state.repeating !== "off" ? Color.Blue : undefined }}
+              icon={{
+                source: Icon.Repeat,
+                tintColor: state.repeating !== "off" ? Color.Blue : undefined,
+              }}
               shortcut={{ modifiers: ["cmd"], key: "r" }}
               onAction={async () => {
                 await cycleRepeat();
@@ -134,7 +145,11 @@ ${state.playerState === "playing" ? "▶️ Playing" : "⏸️ Paused"}${state.s
             />
           </ActionPanel.Section>
           <ActionPanel.Section>
-            <Action title="Refresh" icon={Icon.ArrowClockwise} onAction={revalidate} />
+            <Action
+              title="Refresh"
+              icon={Icon.ArrowClockwise}
+              onAction={revalidate}
+            />
           </ActionPanel.Section>
         </ActionPanel>
       }

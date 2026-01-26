@@ -32,7 +32,9 @@ export default function Volume() {
           title={`${level}%`}
           icon={getVolumeIcon(level)}
           accessories={[
-            currentVolume === level ? { icon: Icon.Checkmark, text: "Current" } : {},
+            currentVolume === level
+              ? { icon: Icon.Checkmark, text: "Current" }
+              : {},
           ]}
           actions={
             <ActionPanel>

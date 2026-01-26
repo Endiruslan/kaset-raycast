@@ -19,15 +19,6 @@ Control [Kaset](https://github.com/sozercan/kaset) - YouTube Music client for ma
 - [Kaset](https://github.com/sozercan/kaset) with AppleScript support
 - macOS 14.0 or later
 
-## Installation
-
-```bash
-npm install
-npm run dev
-```
-
-This will open Raycast and load the extension in development mode.
-
 ## Commands
 
 | Command | Description |
@@ -59,50 +50,6 @@ Configure the menu bar display style in Raycast extension preferences:
 - **Short** - Track name truncated to 20 characters
 - **Medium** - Track name truncated to 35 characters
 - **Long** - Track name truncated to 50 characters
-
-## AppleScript Support
-
-This extension communicates with Kaset via AppleScript. The following commands are available:
-
-```applescript
--- Playback control
-tell application "Kaset" to play
-tell application "Kaset" to pause
-tell application "Kaset" to playpause
-tell application "Kaset" to next track
-tell application "Kaset" to previous track
-
--- Volume
-tell application "Kaset" to set volume 50
-tell application "Kaset" to get sound volume
-
--- Modes
-tell application "Kaset" to toggle shuffle
-tell application "Kaset" to cycle repeat
-tell application "Kaset" to toggle mute
-
--- State
-tell application "Kaset" to get player state
-tell application "Kaset" to get shuffling
-tell application "Kaset" to get repeating
-tell application "Kaset" to get muted
-
--- Current track
-tell application "Kaset"
-  set t to current track
-  name of t        -- track title
-  artist of t      -- artist name
-  album of t       -- album name
-  duration of t    -- duration in seconds
-  id of t          -- video ID
-  artwork url of t -- artwork URL
-end tell
-
--- Position
-tell application "Kaset" to get player position
-tell application "Kaset" to set player position to 30
-tell application "Kaset" to get track duration
-```
 
 ## Development
 

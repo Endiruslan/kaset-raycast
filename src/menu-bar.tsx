@@ -65,7 +65,12 @@ export default function Command() {
             <MenuBarExtra.Item
               title={state.currentTrack.name}
               subtitle={state.currentTrack.artist}
-              onAction={() => launchCommand({ name: "now-playing", type: LaunchType.UserInitiated })}
+              onAction={() =>
+                launchCommand({
+                  name: "now-playing",
+                  type: LaunchType.UserInitiated,
+                })
+              }
             />
           </MenuBarExtra.Section>
 
@@ -74,19 +79,34 @@ export default function Command() {
               title={state.playerState === "playing" ? "Pause" : "Play"}
               icon={state.playerState === "playing" ? Icon.Pause : Icon.Play}
               shortcut={{ modifiers: ["cmd"], key: "p" }}
-              onAction={() => launchCommand({ name: "toggle-playback", type: LaunchType.Background })}
+              onAction={() =>
+                launchCommand({
+                  name: "toggle-playback",
+                  type: LaunchType.Background,
+                })
+              }
             />
             <MenuBarExtra.Item
               title="Next Track"
               icon={Icon.Forward}
               shortcut={{ modifiers: ["cmd"], key: "n" }}
-              onAction={() => launchCommand({ name: "next-track", type: LaunchType.Background })}
+              onAction={() =>
+                launchCommand({
+                  name: "next-track",
+                  type: LaunchType.Background,
+                })
+              }
             />
             <MenuBarExtra.Item
               title="Previous Track"
               icon={Icon.Rewind}
               shortcut={{ modifiers: ["cmd"], key: "b" }}
-              onAction={() => launchCommand({ name: "previous-track", type: LaunchType.Background })}
+              onAction={() =>
+                launchCommand({
+                  name: "previous-track",
+                  type: LaunchType.Background,
+                })
+              }
             />
           </MenuBarExtra.Section>
 
@@ -95,12 +115,22 @@ export default function Command() {
               title={state.muted ? "Unmute" : "Mute"}
               icon={state.muted ? Icon.SpeakerOff : Icon.SpeakerHigh}
               shortcut={{ modifiers: ["cmd"], key: "m" }}
-              onAction={() => launchCommand({ name: "toggle-mute", type: LaunchType.Background })}
+              onAction={() =>
+                launchCommand({
+                  name: "toggle-mute",
+                  type: LaunchType.Background,
+                })
+              }
             />
             <MenuBarExtra.Item
               title={`Volume: ${state.volume}%`}
               icon={Icon.SpeakerHigh}
-              onAction={() => launchCommand({ name: "volume", type: LaunchType.UserInitiated })}
+              onAction={() =>
+                launchCommand({
+                  name: "volume",
+                  type: LaunchType.UserInitiated,
+                })
+              }
             />
           </MenuBarExtra.Section>
 
@@ -109,13 +139,23 @@ export default function Command() {
               title={`Shuffle: ${state.shuffling ? "On" : "Off"}`}
               icon={Icon.Shuffle}
               shortcut={{ modifiers: ["cmd"], key: "s" }}
-              onAction={() => launchCommand({ name: "toggle-shuffle", type: LaunchType.Background })}
+              onAction={() =>
+                launchCommand({
+                  name: "toggle-shuffle",
+                  type: LaunchType.Background,
+                })
+              }
             />
             <MenuBarExtra.Item
               title={`Repeat: ${state.repeating}`}
               icon={Icon.Repeat}
               shortcut={{ modifiers: ["cmd"], key: "r" }}
-              onAction={() => launchCommand({ name: "cycle-repeat", type: LaunchType.Background })}
+              onAction={() =>
+                launchCommand({
+                  name: "cycle-repeat",
+                  type: LaunchType.Background,
+                })
+              }
             />
           </MenuBarExtra.Section>
 
@@ -124,13 +164,25 @@ export default function Command() {
               title={state.likeStatus === "liked" ? "Unlike" : "Like"}
               icon={state.likeStatus === "liked" ? Icon.HeartFill : Icon.Heart}
               shortcut={{ modifiers: ["cmd"], key: "l" }}
-              onAction={() => launchCommand({ name: "like-track", type: LaunchType.Background })}
+              onAction={() =>
+                launchCommand({
+                  name: "like-track",
+                  type: LaunchType.Background,
+                })
+              }
             />
             <MenuBarExtra.Item
-              title={state.likeStatus === "disliked" ? "Remove Dislike" : "Dislike"}
+              title={
+                state.likeStatus === "disliked" ? "Remove Dislike" : "Dislike"
+              }
               icon={Icon.HeartDisabled}
               shortcut={{ modifiers: ["cmd"], key: "d" }}
-              onAction={() => launchCommand({ name: "dislike-track", type: LaunchType.Background })}
+              onAction={() =>
+                launchCommand({
+                  name: "dislike-track",
+                  type: LaunchType.Background,
+                })
+              }
             />
           </MenuBarExtra.Section>
         </>
@@ -156,7 +208,9 @@ export default function Command() {
           onAction={async () => {
             setIsHidden(true);
             await LocalStorage.setItem(MENU_BAR_ENABLED_KEY, false);
-            await showHUD("Menu bar hidden. Run 'Show Menu Bar' to show again.");
+            await showHUD(
+              "Menu bar hidden. Run 'Show Menu Bar' to show again.",
+            );
           }}
         />
       </MenuBarExtra.Section>
@@ -164,7 +218,9 @@ export default function Command() {
   );
 }
 
-function getMenuBarTitle(state: KasetState | null | undefined): string | undefined {
+function getMenuBarTitle(
+  state: KasetState | null | undefined,
+): string | undefined {
   const { menuBarStyle } = getPreferenceValues<Preferences>();
 
   if (menuBarStyle === "icon") {

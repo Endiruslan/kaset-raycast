@@ -4,7 +4,7 @@
   "title": "Kaset Control",
   "description": "Control Kaset - YouTube Music client for macOS",
   "icon": "extension-icon.png",
-  "author": "Endiruslan",
+  "author": "endiruslan",
   "categories": ["Media", "Applications"],
   "license": "MIT",
   "preferences": [
@@ -93,8 +93,8 @@
     }
   ],
   "dependencies": {
-    "@raycast/api": "^1.87.0",
-    "@raycast/utils": "^1.19.0",
+    "@raycast/api": "^1.103.3",
+    "@raycast/utils": "^2.2.2",
     "run-applescript": "^7.0.0"
   },
   "devDependencies": {
