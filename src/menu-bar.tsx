@@ -162,7 +162,7 @@ export default function Command() {
           <MenuBarExtra.Section title="Rating">
             <MenuBarExtra.Item
               title={state.likeStatus === "liked" ? "Unlike" : "Like"}
-              icon={state.likeStatus === "liked" ? Icon.HeartFill : Icon.Heart}
+              icon={Icon.Heart}
               shortcut={{ modifiers: ["cmd"], key: "l" }}
               onAction={() =>
                 launchCommand({
@@ -204,7 +204,7 @@ export default function Command() {
         />
         <MenuBarExtra.Item
           title="Hide Menu Bar"
-          icon={Icon.EyeOff}
+          icon={Icon.EyeDisabled}
           onAction={async () => {
             setIsHidden(true);
             await LocalStorage.setItem(MENU_BAR_ENABLED_KEY, false);
