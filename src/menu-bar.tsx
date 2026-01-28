@@ -13,10 +13,6 @@ import { usePromise } from "@raycast/utils";
 import { useState } from "react";
 import { getKasetState, isKasetRunning, KasetState } from "./utils/kaset";
 
-interface Preferences {
-  menuBarStyle: "icon" | "short" | "medium" | "long";
-}
-
 const MENU_BAR_ENABLED_KEY = "menuBarEnabled";
 
 async function fetchState() {
