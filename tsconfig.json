@@ -16,5 +16,5 @@
     "skipLibCheck": true,
     "strict": true
   },
-  "include": ["src/**/*", "ray-env.d.ts"]
+  "include": ["src/**/*", "ray-env.d.ts", "raycast-env.d.ts"]
 }
